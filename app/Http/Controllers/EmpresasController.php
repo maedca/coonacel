@@ -82,8 +82,8 @@ class EmpresasController extends Controller
         $empresa =Empresa::find($id);
 
 
-//     $relacionista =  $empresa->relacionista()->get();
-$relacionistas = Relacionista::all();
+     $relacionista =  $empresa->relacionista()->get();
+
         return view('Empresas.show', compact('empresa', 'relacionista'));
     }
 
