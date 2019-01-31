@@ -2,13 +2,14 @@
 @section('content')
 <div class="content mt-4">
     <div class="container-fluid">
-
+        <a href="{{route('conferenceSchedules.create')}}"> <button class="btn btn-success"><i class="fa fa-plus    "></i></button></a>
         <table class="table table-hover" id="table">
             <thead>
 
                 <tr>
-                    <th>Conferencia Agendad</th>
-
+                    <th>Conferencia Agendada</th>
+                    <th>Empresa</th>
+                    <th>Relacionista</th>
                     <th>Acciones</th>
                 </tr>
 
@@ -16,15 +17,15 @@
             <tbody>
                 @foreach( $conferenceSchedules as $conferenceSchedule)
                 <tr>
-
                     <td>{{$conferenceSchedule->conferencia()->first()->name}}</td>
-
+                    <td>{{$conferenceSchedule->empresa()->first()->name}}</td>
+                    <td>{{$conferenceSchedule->empresa()->first()->relacionista()->first()->name}}</td>
 
                     <td>
-                        <form action="{{route('conferencias.destroy', $conferenceSchedule)}}" method="post">
+                        <form action="{{route('conferenceSchedules.destroy', $conferenceSchedule)}}" method="post">
                             @csrf
                             @method('delete')
-                            <a href="{{route('conferencias.edit', $conferenceSchedule)}}"> <i class="fa fa-edit"></i></a>
+                            <a href="{{route('conferenceSchedules.show', $conferenceSchedule)}}"> <i class="fa fa-eye"></i></a>
                             <button class="btn" type="submit"><i class="fa fa-trash" style="color:red"></i></button>
                             {{--<input type="submit" value="Eliminar" class="btn btn-link form-inline">--}}
                         </form>

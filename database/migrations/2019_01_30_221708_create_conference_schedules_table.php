@@ -17,9 +17,9 @@ class CreateConferenceSchedulesTable extends Migration
             $table->increments('id');
 //            $table->unsignedInteger('industry_id');
 //            $table->foreign('industry_id')->references('id')->on('industries');
-            $table->unsignedInteger('conferencia_id');
+            $table->unsignedInteger('conferencia_id');//nombre de la relacion
             $table->foreign('conferencia_id')->references('id')->on('conferencias');
-            $table->unsignedInteger('empresa_id');
+            $table->unsignedInteger('empresa_id');//nombre de la relacion
             $table->foreign('empresa_id')->references('id')->on('empresas');
 //            $table->unsignedInteger('relacionista_id');
 //            $table->foreign('relacionista_id')->references('id')->on('relacionistas');
@@ -27,6 +27,10 @@ class CreateConferenceSchedulesTable extends Migration
             $table->integer('morning_assistant')->nullable();
             $table->integer('afternoon_assistant')->nullable();
             $table->integer('night_assistant')->nullable();
+            $table->time('morning_time')->nullable();
+            $table->time('afternoon_time')->nullable();
+            $table->time('night_time')->nullable();
+            $table->integer('videoBeam');
 
 
 

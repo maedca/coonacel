@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\Industry;
 use Illuminate\Http\Request;
 use App\Relacionista;
 
@@ -16,7 +17,8 @@ class EmpresasController extends Controller
     public function index()
     {
         $empresas = Empresa::all();
-        return view('empresas.index', compact('empresas'));
+
+        return view('empresas.index', compact('empresas' ));
     }
 
     /**
@@ -28,7 +30,8 @@ class EmpresasController extends Controller
 
     {
        $relacionistas =  Relacionista::orderBy('name', 'ASC')->get();
-        return view('Empresas.create', compact('relacionistas'));
+        $industries = Industry::orderBy('name', 'ASC')->get();
+        return view('Empresas.create', compact('relacionistas','industries'));
     }
 
     /**
@@ -44,7 +47,7 @@ class EmpresasController extends Controller
             'name' =>'required',
             'nit'=>'required',
             'url'=>'required',
-            'industria'=>'required',
+            'industry_id'=>'required',
             'empleados'=>'required',
             'tel_ofi'=>'required',
             'cel'=>'required',
@@ -60,11 +63,12 @@ class EmpresasController extends Controller
             'ciudad' =>'required',
             'municipio' =>'required',
             'barrio' =>'required',
-            'pais'=>'required'
+            'pais'=>'required',
+            'relacionista_id'=>'required'
         ]);
 
         Empresa::create($request->all());
-        return redirect()->route('home');
+        return redirect()->route('empresas.index');
     }
 
     /**
@@ -73,10 +77,14 @@ class EmpresasController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $empresa)
+    public function show($id)
     {
-     $relacionista =  $empresa->relacionista();
-        return view('empresas.show', compact('empresa', 'relacionista'));
+        $empresa =Empresa::find($id);
+
+
+//     $relacionista =  $empresa->relacionista()->get();
+$relacionistas = Relacionista::all();
+        return view('Empresas.show', compact('empresa', 'relacionista'));
     }
 
     /**
@@ -87,7 +95,7 @@ class EmpresasController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        //
+        return view('empresas.edit' , compact('empresa'));
     }
 
     /**

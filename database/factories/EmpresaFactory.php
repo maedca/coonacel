@@ -7,7 +7,7 @@ $factory->define(\App\Empresa::class, function (Faker $faker) {
         'name' =>$faker->unique()->company,
         'nit'=>$faker->unique()->creditCardNumber,
         'url'=>$faker->unique()->url,
-        'industria'=>$faker->numberBetween($min= 1, $max = 500),
+//        'industria'=>$faker->numberBetween($min= 1, $max = 500),
         'empleados'=>$faker->numberBetween($min= 10, $max = 150),
         'tel_ofi'=>'000000',
         'cel'=>'1111111',

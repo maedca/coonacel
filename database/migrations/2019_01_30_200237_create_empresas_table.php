@@ -15,10 +15,13 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('relacionista_id')->nullable();
+            $table->foreign('relacionista_id')->references('id')->on('relacionistas');
+            $table->unsignedInteger('industry_id')->nullable();
+            $table->foreign('industry_id')->references('id')->on('industries');
             $table->string('name');
             $table->bigInteger('nit');
             $table->string('url')->nullable();
-            $table->string('industria');
             $table->integer('empleados');
             $table->bigInteger('tel_ofi');
             $table->bigInteger('cel');
@@ -35,8 +38,8 @@ class CreateEmpresasTable extends Migration
             $table->string('municipio');
             $table->string('barrio');
             $table->string('pais');
-            $table->unsignedInteger('relacionista_id')->nullable();
-            $table->foreign('relacionista_id')->references('id')->on('relacionistas');
+
+
 
 
             $table->timestamps();

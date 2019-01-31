@@ -28,7 +28,7 @@
                      <td><form action="{{route('Empresas.destroy', $empresa)}}" method="post">
                              @csrf
                              @method('delete')
-                             <a href="{{route('Empresas.show', $empresa)}}"><i class="fa fa-eye"></i></a>
+                             <a href="{{route('Empresas.show', $empresa->id)}}"><i class="fa fa-eye"></i></a>
                              {{--<input type="submit" value="" class="btn btn-link form-inline">--}}
                              <button class="btn" type="submit"><i class="fa fa-trash" style="color: red"> </i></button>
                          </form></td>
