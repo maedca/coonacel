@@ -25,4 +25,5 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('relacionistas', 'RelacionistasController');
     Route::resource('conferencias', 'ConferenciasController');
     Route::resource('conferenceSchedules', 'ConferenceSchedulesController');
+    Route::resource('industries', 'IndustriesController');
 });

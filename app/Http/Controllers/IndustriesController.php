@@ -14,7 +14,8 @@ class IndustriesController extends Controller
      */
     public function index()
     {
-        //
+        $industries = Industry::all();
+        return view('industries.index', compact('industries'));
     }
 
     /**
@@ -24,7 +25,7 @@ class IndustriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('industries.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class IndustriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $this->validate($request, [
+           'name'=> 'required|unique:industries,name'
+       ]);
+       Industry::create($request->all());
+       return redirect()->route('industries.index');
     }
 
     /**
@@ -57,7 +62,7 @@ class IndustriesController extends Controller
      */
     public function edit(Industry $industry)
     {
-        //
+        return view('industries.edit', compact('industry'));
     }
 
     /**
@@ -69,7 +74,11 @@ class IndustriesController extends Controller
      */
     public function update(Request $request, Industry $industry)
     {
-        //
+        $this->validate($request, [
+            'name'=> 'required|unique:industries,name'
+        ]);
+        $industry->update($request->all());
+        return redirect()->route('industries.index');
     }
 
     /**
