@@ -91,10 +91,13 @@ class EmpresasController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empresa $empresa)
+    public function edit($id)
     {
+        $empresa = Empresa::find($id);
         $relacionistas = Relacionista::all();
-        return view('empresas.edit', compact('empresa', 'relacionistas'));
+        $industries = Industry::all();
+//        dd($empresa);
+        return view('empresas.edit', compact('empresa', 'relacionistas', 'industries'));
     }
 
     /**
@@ -104,9 +107,36 @@ class EmpresasController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresa)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'nit' => 'required',
+            'url' => 'required',
+            'industry_id' => 'required',
+            'empleados' => 'required',
+            'tel_ofi' => 'required',
+            'cel' => 'required',
+            'contacto_1' => 'required',
+            'cargo_1' => 'required',
+            'tel_1' => 'required',
+            'contacto_2' => 'nullable',
+            'cargo_2' => 'nullable',
+            'tel_2' => 'nullable',
+            'descripcion' => 'required',
+            'email' => 'required',
+            'calle' => 'required',
+            'ciudad' => 'required',
+            'municipio' => 'required',
+            'barrio' => 'required',
+            'pais' => 'required',
+            'relacionista_id' => 'required',
+        ]);
+
+        $empresa = Empresa::find($id);
+        $empresa->update($request->all());
+//     dd($empresa);
+        return redirect()->route('Empresas.index');
     }
 
     /**
