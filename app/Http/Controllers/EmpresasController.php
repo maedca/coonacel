@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Empresa;
 use App\Industry;
-use Illuminate\Http\Request;
 use App\Relacionista;
+use Illuminate\Http\Request;
 
 class EmpresasController extends Controller
 {
@@ -18,7 +18,7 @@ class EmpresasController extends Controller
     {
         $empresas = Empresa::all();
 
-        return view('empresas.index', compact('empresas' ));
+        return view('empresas.index', compact('empresas'));
     }
 
     /**
@@ -27,11 +27,10 @@ class EmpresasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-
     {
-       $relacionistas =  Relacionista::orderBy('name', 'ASC')->get();
+        $relacionistas = Relacionista::orderBy('name', 'ASC')->get();
         $industries = Industry::orderBy('name', 'ASC')->get();
-        return view('Empresas.create', compact('relacionistas','industries'));
+        return view('Empresas.create', compact('relacionistas', 'industries'));
     }
 
     /**
@@ -43,28 +42,28 @@ class EmpresasController extends Controller
     public function store(Request $request)
     {
 //        dd($request);
-        $this->validate($request,[
-            'name' =>'required',
-            'nit'=>'required',
-            'url'=>'required',
-            'industry_id'=>'required',
-            'empleados'=>'required',
-            'tel_ofi'=>'required',
-            'cel'=>'required',
-            'contacto_1'=>'required',
-            'cargo_1'=>'required',
-            'tel_1'=>'required',
-            'contacto_2'=> 'nullable',
-            'cargo_2' =>'nullable',
+        $this->validate($request, [
+            'name' => 'required',
+            'nit' => 'required',
+            'url' => 'required',
+            'industry_id' => 'required',
+            'empleados' => 'required',
+            'tel_ofi' => 'required',
+            'cel' => 'required',
+            'contacto_1' => 'required',
+            'cargo_1' => 'required',
+            'tel_1' => 'required',
+            'contacto_2' => 'nullable',
+            'cargo_2' => 'nullable',
             'tel_2' => 'nullable',
-            'descripcion' =>'required',
-            'email' =>'required',
-            'calle' =>'required',
-            'ciudad' =>'required',
-            'municipio' =>'required',
-            'barrio' =>'required',
-            'pais'=>'required',
-            'relacionista_id'=>'required'
+            'descripcion' => 'required',
+            'email' => 'required',
+            'calle' => 'required',
+            'ciudad' => 'required',
+            'municipio' => 'required',
+            'barrio' => 'required',
+            'pais' => 'required',
+            'relacionista_id' => 'required',
         ]);
 
         Empresa::create($request->all());
@@ -79,10 +78,9 @@ class EmpresasController extends Controller
      */
     public function show($id)
     {
-        $empresa =Empresa::find($id);
+        $empresa = Empresa::find($id);
 
-
-     $relacionista =  $empresa->relacionista()->get();
+        $relacionista = $empresa->relacionista()->get();
 
         return view('Empresas.show', compact('empresa', 'relacionista'));
     }
@@ -95,7 +93,8 @@ class EmpresasController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        return view('empresas.edit' , compact('empresa'));
+        $relacionistas = Relacionista::all();
+        return view('empresas.edit', compact('empresa', 'relacionistas'));
     }
 
     /**
