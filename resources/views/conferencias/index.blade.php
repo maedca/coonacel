@@ -2,7 +2,7 @@
 @section('content')
     <div class="content mt-4">
         <div class="container-fluid">
-
+            <a href="{{route('conferencias.create')}}"> <button class="btn btn-success"><i class="fa fa-plus    "></i></button></a>
             <table class="table table-hover" id="table" >
                 <thead>
 
