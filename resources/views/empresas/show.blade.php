@@ -37,13 +37,13 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="industria">Industria</label>
+                                <label for="industry_id">Industria</label>
                                 {{--<select id="industria" class="form-control form-control-sm" name="industria">--}}
                                     {{--<option selected>Choose...</option>--}}
                                     {{--<option value="industria1">industria 1</option>--}}
                                 {{--</select>--}}
-                                <input type="text" class="form-control form-control-sm" id="web" placeholder="Web"
-                                       name="url" value="{{$empresa->industry()->first()->name}}" readonly>
+                                <input type="text" class="form-control form-control-sm" id="industry_id" placeholder="industria"
+                                       name="text" value="{{$empresa->industry()->first()->name}}" readonly>
                             </div>
                             <div class="form-group  col-md-4">
                                 <label for="empleados">Empleados</label>
@@ -134,7 +134,7 @@
                                 <input type="text" id="pais" name="pais" class="form-control-sm form-control" value="{{$empresa->pais}}" readonly>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="pais">Relacionista</label>
+                                <label for="relacionista_id">Relacionista</label>
                                 <input type="text" id="relacionista_id" name="relacionista_id" class="form-control-sm form-control" value="{{$empresa->realcionista()->first()->name}}" readonly>
                                 {{--<select name="relacionista" id="" class="form-control form-control-sm">--}}
                                     {{--@foreach($relacionistas as $relacionista)--}}
