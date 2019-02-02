@@ -67,7 +67,7 @@ class EmpresasController extends Controller
         ]);
 
         Empresa::create($request->all());
-        return redirect()->route('empresas.index');
+        return redirect()->route('Empresas.index');
     }
 
     /**
@@ -145,8 +145,10 @@ class EmpresasController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $empresa)
+    public function destroy($id)
     {
-        //
+        $empresa = Empresa::find($id);
+       $empresa->delete();
+       return redirect()->route('Empresas.index');
     }
 }

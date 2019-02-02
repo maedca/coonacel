@@ -38,6 +38,7 @@ class CreateEmpresasTable extends Migration
             $table->string('municipio');
             $table->string('barrio');
             $table->string('pais');
+            $table->softDeletes();
 
 
 

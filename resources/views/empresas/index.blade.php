@@ -25,7 +25,7 @@
                         <td>{{$empresa->industria}}</td>
                         <td>{{$empresa->tel_ofi}}</td>
                         <td>{{$empresa->email}}</td>
-                     <td><form action="{{route('Empresas.destroy', $empresa)}}" method="post">
+                     <td><form action="{{route('Empresas.destroy', $empresa->id)}}" method="post">
                              @csrf
                              @method('delete')
                              <a href="{{route('Empresas.show', $empresa->id)}}"><i class="fa fa-eye"></i></a>
