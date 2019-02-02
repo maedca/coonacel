@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b7d44e4-05cb-4454-a226-7b6c6c396970" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Empresa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Empresa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpresasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpresasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_30_200237_create_empresas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_30_200237_create_empresas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/empresas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresas/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="5b7d44e4-05cb-4454-a226-7b6c6c396970" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -396,7 +390,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sion" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -441,16 +435,15 @@
       <updated>1548264755500</updated>
       <workItem from="1548264760854" duration="17040000" />
       <workItem from="1548472210239" duration="14000" />
-      <workItem from="1548785989220" duration="64227000" />
+      <workItem from="1548785989220" duration="64835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81281000" />
+    <option name="totallyTimeSpent" value="81889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22281879" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
