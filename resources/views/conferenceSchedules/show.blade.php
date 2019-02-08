@@ -1,5 +1,15 @@
 @extends('layouts.master')
 @section('content')
+    <style>
+        input[type='text']{
+            border: none;
+            background: transparent;
+
+        }
+        .form-control[readonly]{
+            background: transparent;
+        }
+    </style>
     <div class="content">
         <div class="container-fluid">
             <h1 class="mt-2">Detalles de la Conferencia {{$conferenceSchedule->conferencia()->first()->name}}</h1>
@@ -10,7 +20,8 @@
 
                     <p><strong>
                             Corrige estos errores para continuar
-                        </strong></p>
+                        </strong
+                        ></p>
                     <ul>
                         @foreach($errors->all() as $errors)
                             <li>{{ $errors }}</li>
@@ -103,6 +114,17 @@
                                 <input type="text" id="course_date" name="course_date"
                                        class="form-control-sm form-control" readonly value="{{\Carbon\Carbon::parse($conferenceSchedule->course_date)->format('l j F Y')}}">
                             </div>
+                            <div class="form-group col-md-4">
+                                <label for="conferencista_id">Conferencista</label>
+                                @if($conferenceSchedule->conferencista()->first() != null)
+                                    <input type="text" id="course_date" name="conferencista_id"
+                                           class="form-control-sm form-control" readonly value="{{$conferenceSchedule->conferencista()->first()->name}}">
+                                    @else
+                                    <input type="text" id="course_date" name="conferencista_id"
+                                           class="form-control-sm form-control" readonly value="">
+                                    @endif
+
+                            </div>
 
                             <div class="form-group col-md-4">
                                 <label for="VideoBeam">Uso de Video Beam</label>
@@ -169,6 +191,15 @@
                                 <label for="relacionista_id">Relacionista</label>
                                 <input type="text" id="relacionista_id" name="relacionista_id"
                                        class="form-control-sm form-control" readonly value="{{$conferenceSchedule->empresa()->first()->relacionista()->first()->name}}">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="state">Estado</label>
+                                @if($conferenceSchedule->state == 1)
+                                    <input type="text" name="state" readonly value="ACTIVA"  class="form-control-sm form-control">
+                                    @else
+                                    <input type="text" name="state" readonly value="NO ACTIVA"  class="form-control-sm form-control">
+                                    @endif
+
                             </div>
                         </div>
 

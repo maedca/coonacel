@@ -16,7 +16,7 @@
                         @endforeach
                     </ul>
                     @endif
-                    <form action="/Empresas" method="post">
+                    <form action="{{route('Empresas.store')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-row">
                             <div class="form-group col-md-4">

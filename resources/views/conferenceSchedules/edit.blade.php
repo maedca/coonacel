@@ -55,6 +55,23 @@
                                 <input type="date" class="form-control form-control-sm" id="calle" name="course_date"
                                        value="{{$conferenceSchedule->course_date}}">
                             </div>
+                            @if(\Illuminate\Support\Facades\Auth::user()->role == 'director')
+                            <div class="form-group col-md-4">
+                                <label for="conferencista_id">Conferencista</label>
+                                <select name="conferencista_id" id="" class="form-control form-control-sm select2">
+                                    @if($conferenceSchedule->conferencista()->first() != null)
+                                        <option selected value="{{$conferenceSchedule->conferencista()->first()->id}}">{{$conferenceSchedule->conferencista()->first()->name}}</option>
+                                        @else
+                                        <option selected value=""></option>
+                                        @endif
+
+                                    @foreach($conferencistas as $conferencista)
+                                        <option value="{{$conferencista->id}}">{{$conferencista->name}}</option>
+                                        @endforeach
+
+                                </select>
+                            </div>
+                                @endif
 
                         </div>
 
@@ -118,6 +135,22 @@
                                         @endif</option>
                                     <option value="1">Sí</option>
                                     <option value="0">No</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="state">Estado</label>
+                                <select name="state" id="" class="form-control form-control-sm">
+
+                                    {{--<option value="{{$conferenceSchedule->state}}"--}}
+                                            {{--selected> @if($conferenceSchedule->state == 0)--}}
+                                            {{--No Activa--}}
+                                        {{--@else--}}
+                                            {{--Activa--}}
+                                        {{--@endif</option>--}}
+
+                                    <option value="0" @if($conferenceSchedule->state == 0) selected @endif>No Activa</option>
+                                    <option value="1"  @if($conferenceSchedule->state == 1) selected @endif>Activa</option>
 
                                 </select>
                             </div>

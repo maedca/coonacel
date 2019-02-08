@@ -18,7 +18,7 @@ class EmpresasController extends Controller
     {
         $empresas = Empresa::all();
 
-        return view('empresas.index', compact('empresas'));
+        return view('Empresas.index', compact('empresas'));
     }
 
     /**
@@ -97,7 +97,7 @@ class EmpresasController extends Controller
         $relacionistas = Relacionista::all();
         $industries = Industry::all();
 //        dd($empresa);
-        return view('empresas.edit', compact('empresa', 'relacionistas', 'industries'));
+        return view('Empresas.edit', compact('empresa', 'relacionistas', 'industries'));
     }
 
     /**

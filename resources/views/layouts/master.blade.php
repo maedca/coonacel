@@ -17,6 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 <body class="hold-transition sidebar-mini">
+@include('sweetalert::alert')`
 <div class="wrapper">
 
     <!-- Navbar -->
@@ -164,6 +165,172 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
+                @if(\Illuminate\Support\Facades\Auth::user()->role == 'relacionista')
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-dashboard"></i>
+                            <p>
+                                Call Center
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: block;">
+                            <li class="nav-item">
+                                <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
+                                    <i class="fa fa-comment-alt"></i>
+                                    <p class="text-white">
+                                        Agendar Conferencia
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('Empresas.index')}}" class="nav-link ">
+                                    <i class="fa fa-industry"></i>
+                                    <p class="text-white">Empresas</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+                @endif
+                @if(\Illuminate\Support\Facades\Auth::user()->role == 'director')
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-dashboard"></i>
+                            <p>
+                                Capacitación
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: block;">
+                            <li class="nav-item">
+                                <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
+                                    <i class="fa fa-comment-alt"></i>
+                                    <p class="text-white">
+                                        Agendar Conferencia
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('Empresas.index')}}" class="nav-link ">
+                                    <i class="fa fa-industry"></i>
+                                    <p class="text-white">Empresas</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+                    @endif
+
+
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-dashboard"></i>
+                            <p>
+                                Aprobación y Despacho
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: block;">
+                            <li class="nav-item">
+                                <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
+                                    <i class="fa fa-comment-alt"></i>
+                                    <p class="text-white">
+                                        Agendar Conferencia
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('Empresas.index')}}" class="nav-link ">
+                                    <i class="fa fa-industry"></i>
+                                    <p class="text-white">Empresas</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-dashboard"></i>
+                            <p>
+                               Nómina
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: block;">
+                            <li class="nav-item">
+                                <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
+                                    <i class="fa fa-comment-alt"></i>
+                                    <p class="text-white">
+                                        Agendar Conferencia
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('Empresas.index')}}" class="nav-link ">
+                                    <i class="fa fa-industry"></i>
+                                    <p class="text-white">Empresas</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-dashboard"></i>
+                            <p>
+                                Informes Generales
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: block;">
+                            <li class="nav-item">
+                                <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
+                                    <i class="fa fa-comment-alt"></i>
+                                    <p class="text-white">
+                                        Agendar Conferencia
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('Empresas.index')}}" class="nav-link ">
+                                    <i class="fa fa-industry"></i>
+                                    <p class="text-white">Empresas</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
@@ -174,6 +341,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <p>Empresas</p>
                         </a>
                     </li>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role == 'director')
                     <li class="nav-item">
                         <a href="{{route('conferencistas.index')}}" class="nav-link">
                             <i class="fa fa-headphones-alt"></i>
@@ -182,6 +350,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </p>
                         </a>
                     </li>
+                      @endif
                     <li class="nav-item">
                         <a href="{{route('relacionistas.index')}}" class="nav-link">
                             <i class="fa fa-users"></i>
@@ -198,11 +367,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </p>
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
+                        <a href="{{route('industries.index')}}" class="nav-link">
                             <i class="fa fa-comment-alt"></i>
                             <p>
-                                Agendar Conferencia
+                                Industrias
                             </p>
                         </a>
                     </li>
@@ -210,7 +380,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="{{route('industries.index')}}" class="nav-link">
                             <i class="fa fa-comment-alt"></i>
                             <p>
-                                Industrias
+                                Usuarios
                             </p>
                         </a>
                     </li>
@@ -265,6 +435,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <script src="/js/app.js"></script>
+<script>
+    $( document ).ready(function() {
+
+    });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 @yield('scripts')
 </body>

@@ -51,6 +51,15 @@
                                 <label for="course_date">Fecha Capacitación</label>
                                 <input type="date" class="form-control form-control-sm" id="calle" name="course_date">
                             </div>
+                            {{--<div class="form-group col-md-4">--}}
+                                {{--<label for="course_date">Conferencista</label>--}}
+                                {{--<select name="conferencista_id" id="" class="form-control form-control-sm select2">--}}
+                               {{--@foreach($conferencistas as $conferencista)--}}
+                                        {{--<option value="" selected>Selecciona uno</option>--}}
+                                        {{--<option value="{{$conferencista->id}}" >{{$conferencista->name}}</option>--}}
+                                   {{--@endforeach--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
 
                         </div>
 
