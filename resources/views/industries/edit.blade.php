@@ -2,7 +2,7 @@
 @section('content')
     <div class="content">
         <div class="container-fluid">
-            <h1 class="mt-2">Editar Tipo de Industria</h1>
+            <h1 class="mt-2">Editar Tipo de Industria - {{$industry->name}}</h1>
             @if($errors->any())
 
                 <div class="container is-fluid box is-radiusless">

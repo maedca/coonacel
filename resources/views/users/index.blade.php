@@ -1,34 +1,42 @@
 @extends('layouts.master')
+
 @section('content')
     <div class="content mt-4">
-        <h1>Listado de Conferencias</h1>
+        <h1>Listado de Relacionistas</h1>
         <div class="container-fluid">
-            <a href="{{route('conferencias.create')}}"> <button class="btn btn-success"><i class="fa fa-plus    "></i></button></a>
+            <a href="{{route('register')}}"> <button class="btn btn-success"><i class="fa fa-plus    "></i></button></a>
+            <br>
+            <br>
             <table class="table table-hover" id="table" >
                 <thead>
 
                 <tr>
-                    <th>Conferencia</th>
+                    <th>Relacionista</th>
+                    <th>Cedula</th>
 
+                    <th>tel </th>
+                    <th>email</th>
                     <th>Acciones</th>
                 </tr>
 
                 </thead>
                 <tbody>
-                @foreach( $conferencias as $conferencia)
+                @foreach( $relacionistas as $relacionista)
                     <tr>
 
-                        <td>{{$conferencia->name}}</td>
-
+                        <td>{{$relacionista->name}}</td>
+                        <td>{{$relacionista->ci}}</td>
+                        <td>{{$relacionista->phone}}</td>
+                        <td>{{$relacionista->email}}</td>
 
                         <td>
-                            <form action="{{route('conferencias.destroy', $conferencia)}}" method="post">
+                            <form action="{{route('relacionistas.destroy', $relacionista)}}" method="post">
                                 @csrf
                                 @method('delete')
-                                <a href="{{route('conferencias.edit', $conferencia)}}"> <i class="fa fa-edit"></i></a>
-                                <button class="btn" type="submit"><i class="fa fa-trash" style="color:red"></i></button>
-                                {{--<input type="submit" value="Eliminar" class="btn btn-link form-inline">--}}
-                            </form></td>
+                                <a href="{{route('relacionistas.edit', $relacionista)}}"><i class="fa fa-edit"></i></a>
+                                {{--<input type="submit" value="" class="btn btn-link form-inline">--}}
+                                <button class="btn" type="submit"><i class="fa fa-trash" style="color: red"> </i></button>
+                            </form>
                     </tr>
                 @endforeach
                 </tbody>
@@ -37,6 +45,7 @@
     </div>
 
 @endsection
+
 
 @section('styles')
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
@@ -75,4 +84,3 @@
         });
     </script>
 @endsection
-

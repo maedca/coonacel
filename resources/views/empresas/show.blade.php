@@ -3,8 +3,8 @@
 <div class="content">
     <div class="container-fluid">
 
-        <h1 class="mt-2">Ver empresa</h1>
-        <a href="{{route('Empresas.edit', $empresa->id)}}"> <button class="btn btn-success"><i class="fa fa-edit    "></i></button></a>
+        <h1 class="mt-2">Empresa - {{$empresa->name}}</h1>
+        <a href="{{route('Empresas.edit', $empresa->id)}}"> <button class="btn btn-success"><i class="fa fa-edit"></i></button></a>
         @if($errors->any())
 
         <div class="container is-fluid box is-radiusless">

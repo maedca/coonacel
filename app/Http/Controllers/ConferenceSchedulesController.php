@@ -116,7 +116,7 @@ class ConferenceSchedulesController extends Controller
             ]);
 
             $conferenceSchedule->update($request->all());
-            toast('Conferencia Actualizada con Éxito!', 'success', 'top-right');
+            toast('Conferencista Asignado con Éxito!', 'success', 'top-right');
             return redirect()->route('conferenceSchedules.index');
         } else {
             $data = $this->validate($request, [

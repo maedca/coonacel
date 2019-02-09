@@ -3,7 +3,7 @@
 
     <div class="content">
         <div class="container-fluid">
-            <h1 class="mt-2">Editar Relacionista</h1>
+            <h1 class="mt-2">Editar Relacionista - {{$relacionista->name}}</h1>
             @if($errors->any())
 
                 <div class="container is-fluid box is-radiusless">

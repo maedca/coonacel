@@ -3,7 +3,11 @@
 <div class="content mt-4">
     <h1>Conferencias Agendadas</h1>
     <div class="container-fluid">
-        <a href="{{route('conferenceSchedules.create')}}"> <button class="btn btn-success"><i class="fa fa-plus    "></i></button></a>
+        @if(\Illuminate\Support\Facades\Auth::user()->role == 'director')
+            @elseif(\Illuminate\Support\Facades\Auth::user()->role == 'relacionista')
+            <a href="{{route('conferenceSchedules.create')}}"> <button class="btn btn-success"><i class="fa fa-plus    "></i></button></a>
+            @endif
+
         <table class="table table-hover" id="table">
             <thead>
 
@@ -70,7 +74,28 @@
 <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
 <script>
     $(document).ready(function () {
-        $('#table').DataTable();
+        $('#table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+        });
 
     });
 

@@ -69,6 +69,8 @@
                                     <option value="relacionista">Relacionista</option>
                                     <option value="conferencista">Conferencista</option>
                                     <option value="director">Director</option>
+                                    <option value="administrador">Administrador</option>
+
                                 </select>
                             </div>
                         </div>
