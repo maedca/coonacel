@@ -28,5 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function conferencias()
+    {
+        return $this->hasMany('App\ConferenceSchedule', 'conferencista_id');
+    }
+
 
 }

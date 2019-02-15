@@ -26,4 +26,8 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('conferencias', 'ConferenciasController');
     Route::resource('conferenceSchedules', 'ConferenceSchedulesController');
     Route::resource('industries', 'IndustriesController');
+    Route::resource('libranzas', 'LibranzasController');
+    Route::get('/searchConferencia','LibranzasController@searchConferencia');
+    Route::resource('collections', 'CollectionsController');
+
 });

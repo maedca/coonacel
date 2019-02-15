@@ -23,5 +23,10 @@ class ConferenceSchedule extends Model
         return $this->belongsTo('App\Conferencista');
     }
 
+    public function relacionista()
+    {
+        return $this->belongsTo('App\Relacionista');
+    }
+
 
 }
