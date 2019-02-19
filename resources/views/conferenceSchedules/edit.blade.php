@@ -55,14 +55,14 @@
                                 <input type="date" class="form-control form-control-sm" id="calle" name="course_date"
                                        value="{{$conferenceSchedule->course_date}}">
                             </div>
-                            @if(\Illuminate\Support\Facades\Auth::user()->role == 'director')
+                            @if(\Illuminate\Support\Facades\Auth::user()->role == 'director' || \Illuminate\Support\Facades\Auth::user()->role == 'master')
                             <div class="form-group col-md-4">
                                 <label for="conferencista_id">Conferencista</label>
                                 <select name="conferencista_id" id="" class="form-control form-control-sm select2">
                                     @if($conferenceSchedule->conferencista()->first() != null)
                                         <option selected value="{{$conferenceSchedule->conferencista()->first()->id}}">{{$conferenceSchedule->conferencista()->first()->name}}</option>
                                         @else
-                                        <option selected value=""></option>
+                                        <option selected value="">Seleccione</option>
                                         @endif
 
                                     @foreach($conferencistas as $conferencista)
@@ -117,12 +117,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="night_assistant">Asistentes Noche</label>
-                                <input type="text" id="night_assistant" name="night_assistant"
-                                       class="form-control-sm form-control"
-                                       value="{{$conferenceSchedule->night_assistant}}">
-                            </div>
+
                             <div class="form-group col-md-4">
                                 <label for="VideoBeam">Uso de Video Beam</label>
                                 <select name="videoBeam" id="" class="form-control form-control-sm">
@@ -138,6 +133,7 @@
 
                                 </select>
                             </div>
+                            @if(\Illuminate\Support\Facades\Auth::user()->role == 'director' || \Illuminate\Support\Facades\Auth::user()->role == 'master')
                             <div class="form-group col-md-4">
                                 <label for="state">Estado</label>
                                 <select name="state" id="" class="form-control form-control-sm">
@@ -149,9 +145,10 @@
                                             {{--Activa--}}
                                         {{--@endif</option>--}}
 
+
                                     <option value="0" @if($conferenceSchedule->state == 0) selected @endif>No Activa</option>
                                     <option value="1"  @if($conferenceSchedule->state == 1) selected @endif>Activa</option>
-
+@endif
                                 </select>
                             </div>
                         </div>

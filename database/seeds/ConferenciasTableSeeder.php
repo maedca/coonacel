@@ -11,6 +11,12 @@ class ConferenciasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Conferencia::class, 50)->create();
+//        factory(\App\Conferencia::class, 50)->create();
+        App\Conferencia::create([
+            'name' => 'Ingles'
+        ]);
+        App\Conferencia::create([
+            'name' => 'Programacion Neuro Linguistica'
+        ]);
     }
 }

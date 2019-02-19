@@ -4,8 +4,8 @@
     <h1>Conferencias Agendadas</h1>
     <div class="container-fluid">
         @if(\Illuminate\Support\Facades\Auth::user()->role == 'director')
-            @elseif(\Illuminate\Support\Facades\Auth::user()->role == 'relacionista')
-            <a href="{{route('conferenceSchedules.create')}}"> <button class="btn btn-success"><i class="fa fa-plus    "></i></button></a>
+            @elseif(\Illuminate\Support\Facades\Auth::user()->role == 'relacionista' || \Illuminate\Support\Facades\Auth::user()->role == 'master')
+            <a href="{{route('conferenceSchedules.create')}}"> <button class="btn btn-success"><i class="fa fa-plus"></i></button></a>
             @endif
 
         <table class="table table-hover" id="table">
@@ -32,7 +32,7 @@
                         @else
                         <td></td>
                         @endif
-                    @if($conferenceSchedule->conferencista()->first() !=null)
+                    @if($conferenceSchedule->conferencista()->first() != null)
                         <td>{{$conferenceSchedule->conferencista()->first()->name}}</td>
                         @else
                         <td></td>

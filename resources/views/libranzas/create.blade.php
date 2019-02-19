@@ -16,7 +16,7 @@
                         @endforeach
                     </ul>
                     @endif
-                    <form action="{{route('libranzas.store')}}" method="post" >
+                    <form action="{{route('libranza')}}" method="post" >
                         {{csrf_field()}}
 
                         <div class="row">

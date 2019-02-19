@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLibranzasTable extends Migration
+class CreatePedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,26 +13,28 @@ class CreateLibranzasTable extends Migration
      */
     public function up()
     {
-
-        Schema::create('libranzas', function (Blueprint $table) {
+        Schema::create('pedidos', function (Blueprint $table) {
             $table->increments('id');
-//            $table->unsignedInteger('conferencista_id')->nullable();
-////            $table->foreign('conferencista_id')->references('id')->on('conferencistas');
-$table->string('conferencista');
-$table->string('relacionista');
-$table->string('empresa');
+            $table->string('conferencista');
+            $table->string('conferencista_id');
+            $table->string('relacionista');
+            $table->string('empresa');
+            $table->string('conferencia');
 
             $table->string('name');
             $table->bigInteger('nro_libranza');
             $table->string('cc');
             $table->longText('address');
+            $table->longText('empresa_address');
             $table->string('neighborhood');
             $table->string('city');
             $table->string('phone');
+            $table->string('phone_f');
             $table->string('cellphone');
             $table->string('email');
             $table->string('birthday');
             $table->boolean('entrega');
+            $table->string('charge');
             $table->string('receiver_name');
             $table->string('referal_name1')->nullable();
             $table->string('referal_name2')->nullable();
@@ -58,8 +60,9 @@ $table->string('empresa');
             $table->integer('cuotas')->nullable();
             $table->integer('vr_cuotas')->nullable();
             $table->integer('plazo')->nullable();
-    $table->string('file');
+            $table->string('file');
             $table->timestamps();
+
         });
     }
 
@@ -70,6 +73,6 @@ $table->string('empresa');
      */
     public function down()
     {
-        Schema::dropIfExists('libranzas');
+        Schema::dropIfExists('pedidos');
     }
 }

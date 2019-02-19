@@ -76,7 +76,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 @if(\Illuminate\Support\Facades\Auth::user()->role == 'master')
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" >
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
 
@@ -91,7 +91,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <ul class="nav nav-treeview" style="display: block;">
                                 <li class="nav-item">
                                     <a href="{{route('conferencias.index')}}" class="nav-link">
-                                        <i class="fa fa-comment-alt"></i>
+                                        <i class="fa fa-microphone"></i>
                                         <p>
                                             Conferencias
                                         </p>
@@ -115,9 +115,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('industries.index')}}" class="nav-link">
-                                        <i class="fa fa-comment-alt"></i>
+                                        <i class="fa fa-industry"></i>
                                         <p>
                                             Industrias
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('books.index')}}" class="nav-link">
+                                        <i class="fa fa-book-open"></i>
+                                        <p>
+                                            Colecciones
                                         </p>
                                     </a>
                                 </li>
@@ -275,6 +283,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                 </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fa fa-dashboard"></i>
+                                <p>
+                                    Libranzas y pedidos
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: block;">
+                                <li class="nav-item">
+                                    <a href="{{route('libra.index')}}" class="nav-link ">
+                                        <i class="fa fa-file-alt"></i>
+                                        <p class="text-white">Libranzas</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('pedido.index')}}" class="nav-link ">
+                                        <i class="fa fa-file-alt"></i>
+                                        <p class="text-white">Pedidos</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->

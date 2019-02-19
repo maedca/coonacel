@@ -106,11 +106,11 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="night_assistant">Asistentes Noche</label>
-                                <input type="text" id="night_assistant" name="night_assistant"
-                                       class="form-control-sm form-control">
-                            </div>
+                            {{--<div class="form-group col-md-4">--}}
+                                {{--<label for="night_assistant">Asistentes Noche</label>--}}
+                                {{--<input type="text" id="night_assistant" name="night_assistant"--}}
+                                       {{--class="form-control-sm form-control">--}}
+                            {{--</div>--}}
                             <div class="form-group col-md-4">
                                 <label for="VideoBeam">Uso de Video Beam</label>
                                 <select name="videoBeam" id="" class="form-control form-control-sm">

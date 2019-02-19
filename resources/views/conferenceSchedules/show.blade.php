@@ -203,7 +203,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Gurardar</button>
+                        {{--<button type="submit" class="btn btn-primary">Gurardar</button>--}}
                     </form>
                 </div>
         </div>

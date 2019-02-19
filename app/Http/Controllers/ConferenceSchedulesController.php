@@ -21,6 +21,7 @@ class ConferenceSchedulesController extends Controller
     public function index()
     {
         $conferenceSchedules = ConferenceSchedule::all();
+        dd($conferenceSchedules);
 
         return view('conferenceSchedules.index', compact('conferenceSchedules'));
     }

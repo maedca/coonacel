@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\ConferenceSchedule;
 use App\Libranza;
 use Illuminate\Http\Request;
-
+use App\ConferenceSchedule;
 class LibranzasController extends Controller
 {
     /**
@@ -15,7 +14,9 @@ class LibranzasController extends Controller
      */
     public function index()
     {
-dd('prueba');
+        $libras = auth()->user()->libranzas()->get();
+
+return view('libra.index',compact('libras'));
     }
 
     /**
@@ -24,11 +25,12 @@ dd('prueba');
      * @return \Illuminate\Http\Response
      */
     public function create()
-
     {
+        //
         $conferencias  = auth()->user()->conferencias()->get();
-    $colections = null;
-        return view('libranzas.create', compact('conferencias','empresa','colections'));
+        $colections = null;
+
+        return view('libra.create',compact('conferencias'));
     }
 
     /**
@@ -39,18 +41,28 @@ dd('prueba');
      */
     public function store(Request $request)
     {
-dd($request->all());
-        $this->validate($request,[
+        //
+        $data = $this->validate($request,[
+            'conferencista' => 'required|string',
+            'conferencia' => 'required|string',
+            'conferencista_id' => 'required|integer',
+            'empresa' => 'required|string',
+            'relacionista' => 'required|string',
             'nro_libranza' => 'required|integer',
             'name'=> 'required|string|max:191',
             'cc'=> 'required|string|max:191',
             'address'=> 'required|string|max:191',
+            'empresa_address'=> 'required|string|max:191',
             'neighborhood'=> 'required|string|max:191',
             'city'=> 'required|string|max:191',
             'phone'=> 'required|string|max:191',
+            'cellphone'=> 'required|string|max:191',
+            'phone_f'=> 'required|string|max:191',
+
             'email'=> 'required|string|max:191',
             'birthday'=> 'required|date|max:191',
             'entrega'=> 'required|integer',
+            'charge'=> 'required|string',
             'receiver_name'=> 'required|string|max:191',
             'referal_name1'=> 'nullable|string|max:191',
             'referal_name2'=> 'nullable|string|max:191',
@@ -79,14 +91,13 @@ dd($request->all());
             'file'=>'required|mimes:pdf'
         ]);
 
-//        $file = $request->file('file');
-//        $name = time() . $file->getClientOriginalName();
-//        $file->move(public_path() . '/libranzas/', $name);
-//        $request['file'] = $name;
+        $file = $request->file('file');
+        $name = time() . $file->getClientOriginalName();
+        $file->move(public_path() . '/libranza/', $name);
+        $data['file'] = $name;
 
-        Libranza::create($request->all());
-        //return redirect()->route('libranza.index');
-
+        Libranza::create($data);
+        return redirect()->route('libra.index');
     }
 
     /**
@@ -95,9 +106,11 @@ dd($request->all());
      * @param  \App\Libranza  $libranza
      * @return \Illuminate\Http\Response
      */
-    public function show(Libranza $libranza)
+    public function show(Libranza $libra)
     {
         //
+
+        return view('libra.show', compact('libra'));
     }
 
     /**
@@ -129,21 +142,23 @@ dd($request->all());
      * @param  \App\Libranza  $libranza
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Libranza $libranza)
+    public function destroy(Libranza $libra)
     {
-        //
-    }
+        $libra->delete();
 
+        return redirect()->route('libra.index');
+    }
     public function searchConferencia(Request $request)
     {
 
-    $conferencia =  ConferenceSchedule::find($request['id']);
+        $conferencia =  ConferenceSchedule::find($request['id']);
 
-    $array= [];
-    $array['empresa'] = $conferencia->empresa->name;
-    $array['relacionista'] = $conferencia->empresa->relacionista->name;
-    $array['conferencista'] = $conferencia->conferencista->name;
-return $array;
+        $array= [];
+        $array['empresa'] = $conferencia->empresa->name;
+        $array['relacionista'] = $conferencia->empresa->relacionista->name;
+        $array['conferencista'] = $conferencia->conferencista->name;
+        $array['conferencista_id'] = $conferencia->conferencista->id;
+        return $array;
 
     }
 }

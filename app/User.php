@@ -34,4 +34,16 @@ class User extends Authenticatable
     }
 
 
+    public function libranzas()
+    {
+        return $this->hasMany('App\Libranza', 'conferencista_id');
+    }
+
+
+    public function pedidos()
+    {
+        return $this->hasMany('App\Pedido', 'conferencista_id');
+    }
+
+
 }
