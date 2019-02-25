@@ -16,7 +16,7 @@ class CreateEmpresasTable extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('relacionista_id')->nullable();
-            $table->foreign('relacionista_id')->references('id')->on('relacionistas');
+            $table->foreign('relacionista_id')->references('id')->on('users');
             $table->unsignedInteger('industry_id')->nullable();
             $table->foreign('industry_id')->references('id')->on('industries');
             $table->string('name');

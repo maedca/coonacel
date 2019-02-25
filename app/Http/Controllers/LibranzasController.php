@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use App\Libranza;
 use Illuminate\Http\Request;
 use App\ConferenceSchedule;
@@ -28,9 +29,9 @@ return view('libra.index',compact('libras'));
     {
         //
         $conferencias  = auth()->user()->conferencias()->get();
-        $colections = null;
+        $books = Book::all();
 
-        return view('libra.create',compact('conferencias'));
+        return view('libra.create',compact('conferencias', 'books'));
     }
 
     /**

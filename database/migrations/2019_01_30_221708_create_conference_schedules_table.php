@@ -22,7 +22,7 @@ class CreateConferenceSchedulesTable extends Migration
             $table->unsignedInteger('empresa_id');//nombre de la relacion
             $table->foreign('empresa_id')->references('id')->on('empresas');
             $table->unsignedInteger('conferencista_id')->nullable();
-            $table->foreign('conferencista_id')->references('id')->on('conferencistas');
+            $table->foreign('conferencista_id')->references('id')->on('users');
 //            $table->unsignedInteger('relacionista_id');
 //            $table->foreign('relacionista_id')->references('id')->on('relacionistas');
             $table->date('course_date');

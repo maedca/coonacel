@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Conferencista;
+use App\User;
 use Illuminate\Http\Request;
 
 class ConferencistasController extends Controller
@@ -14,7 +15,7 @@ class ConferencistasController extends Controller
      */
     public function index()
     {
-       $conferencistas =  Conferencista::all();
+       $conferencistas =  User::where('role', 'conferencista')->get();
         return view('conferencistas.index' , compact('conferencistas'));
     }
 

@@ -135,14 +135,18 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="realcionista_id">Relacionista</label>
-                                <select name="relacionista_id" id="" class="form-control form-control-sm select2">
-                                    @foreach($relacionistas as $relacionista)
-                                        <option value="{{$relacionista->id}}">{{$relacionista->name}}</option>
+                                @if(auth()->user()->role == 'relacionista')
+                                    <input type="hidden" id="relacionista_id" name="relacionista_id" class="form-control-sm form-control" value="{{$relacionista->id}}">
+                                    <input type="text" id="" name="" class="form-control-sm form-control" value="{{$relacionista->name}}" readonly>
+                                @else
+                                    <select name="relacionista_id" id="" class="form-control form-control-sm select2">
+                                        @foreach($relacionistas as $relacionista)
+                                            <option value="{{$relacionista->id}}">{{$relacionista->name}}</option>
                                         @endforeach
-                                </select>
+                                    </select>
+                                    @endif
                             </div>
                         </div>
-
                         <button type="submit" class="btn btn-primary">Gurardar</button>
                     </form>
                 </div>

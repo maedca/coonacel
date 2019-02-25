@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Relacionista;
+use App\User;
 use Illuminate\Http\Request;
 
 class RelacionistasController extends Controller
@@ -14,7 +15,7 @@ class RelacionistasController extends Controller
      */
     public function index()
     {
-        $relacionistas = Relacionista::all();
+        $relacionistas = User::where('role', 'relacionista')->get();
 //        dd($relacionistas);
         return view('relacionistas.index', compact('relacionistas'));
     }

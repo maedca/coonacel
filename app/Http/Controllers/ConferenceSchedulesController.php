@@ -10,7 +10,7 @@ use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use App\User;
 class ConferenceSchedulesController extends Controller
 {
     /**
@@ -21,7 +21,7 @@ class ConferenceSchedulesController extends Controller
     public function index()
     {
         $conferenceSchedules = ConferenceSchedule::all();
-        dd($conferenceSchedules);
+//        dd($conferenceSchedules);
 
         return view('conferenceSchedules.index', compact('conferenceSchedules'));
     }
@@ -61,6 +61,7 @@ class ConferenceSchedulesController extends Controller
             'night_time' => 'nullable',
             'conferencista_id' => 'sometimes'
         ]);
+
         ConferenceSchedule::create($request->all());
         toast('Conferencia Agendada con Éxito!', 'success', 'top-right');
         return redirect()->route('conferenceSchedules.index');
@@ -87,7 +88,7 @@ class ConferenceSchedulesController extends Controller
     {
         $conferencias = Conferencia::all();
         $empresas = Empresa::all();
-        $conferencistas = Conferencista::all();
+        $conferencistas = User::where('role', 'conferencista')->get();
         return view('conferenceSchedules.edit', compact('conferenceSchedule', 'conferencias', 'empresas', 'conferencistas'));
     }
 
@@ -100,7 +101,7 @@ class ConferenceSchedulesController extends Controller
      */
     public function update(Request $request, ConferenceSchedule $conferenceSchedule)
     {
-        if (Auth::user()->role == 'director') {
+        if (Auth::user()->role == 'director' || Auth::user()->role == 'master') {
             $this->validate($request, [
                 'conferencia_id' => 'required',
                 'empresa_id' => 'required',
@@ -115,6 +116,8 @@ class ConferenceSchedulesController extends Controller
                 'conferencista_id' => 'sometimes',
                 'state' => 'required'
             ]);
+
+
 
             $conferenceSchedule->update($request->all());
             toast('Conferencista Asignado con Éxito!', 'success', 'top-right');

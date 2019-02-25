@@ -20,7 +20,7 @@ class ConferenceSchedule extends Model
 
     public function conferencista()
     {
-        return $this->belongsTo('App\Conferencista');
+        return $this->belongsTo('App\User');
     }
 
     public function relacionista()

@@ -14,7 +14,7 @@ class Empresa extends Model
     public function relacionista()
     {
         //return $this->belongsTo('App\Realacionista');
-        return $this->belongsTo('App\Relacionista');
+        return $this->belongsTo('App\User');
     }
 
     public function industry()

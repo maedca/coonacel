@@ -194,16 +194,15 @@
                         <h3>Obras</h3>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="colection_1">Coleccion</label>
-                                <input type="text" id="colection_1" name="colection_1"
-                                       class="form-control-sm form-control" value="{{old('colection_1')}}">
-                                {{--<select name="colection_1" id="" class="form-control form-control-sm">--}}
-
-                                    {{--<option value="" selected>Selecciona una Coleccion</option>--}}
-                                    {{--@foreach($colections as $colection)--}}
-                                    {{--<option value="{{$colection->name}}">{{$colection->name}}</option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
+                                <label for="collection_1">Coleccion</label>
+                                {{--<input type="text" id="colection_1" name="colection_1"--}}
+                                       {{--class="form-control-sm form-control" value="{{old('collection_1')}}">--}}
+                                <select name="collection_1" id="" class="form-control form-control-sm select2">
+                                    <option value="" selected>Selecciona una Coleccion</option>
+                                    @foreach($books as $book)
+                                    <option value="{{$book->id}}">{{$book->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="VideoBeam">Precio</label>
@@ -214,16 +213,13 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="colection_2">Coleccion</label>
-                                <input type="text" id="colection_2" name="colection_2"
-                                class="form-control-sm form-control" value="{{old('colection_2')}}">
-                                {{--<select name="colection_2" id="" class="form-control form-control-sm">--}}
-
-                                    {{--<option value="" selected>Selecciona una Coleccion</option>--}}
-                                    {{--@foreach($colections as $colection)--}}
-                                    {{--<option value="{{$colection->name}}">{{$colection->name}}</option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
+                                <label for="collection_2">Coleccion</label>
+                                <select name="collection_2" id="" class="form-control form-control-sm select2">
+                                    <option value="" selected>Selecciona una Coleccion</option>
+                                    @foreach($books as $book)
+                                        <option value="{{$book->id}}">{{$book->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="price_2">Precio</label>
@@ -234,15 +230,15 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="colection_3">Coleccion</label>
-                                <input type="text" id="colection_3" name="colection_3"
-                                       class="form-control-sm form-control" value="{{old('colection_3')}}">
-                                {{--<select name="colection_3" id="" class="form-control form-control-sm" >--}}
+                                {{--<input type="text" id="colection_3" name="colection_3"--}}
+                                       {{--class="form-control-sm form-control" value="{{old('colection_3')}}">--}}
+                                <select name="colection_3" id="" class="form-control form-control-sm select2" >
 
-                                    {{--<option value="" selected>Selecciona una Coleccion</option>--}}
-                                    {{--@foreach($colections as $colection)--}}
-                                    {{--<option value="{{$colection->name}}">{{$colection->name}}</option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
+                                    <option value="" selected>Selecciona una Coleccion</option>
+                                    @foreach($books as $book)
+                                        <option value="{{$book->id}}">{{$book->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="price_3">Precio</label>
@@ -253,15 +249,15 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="colection_4">Coleccion</label>
-                                <input type="text" id="colection_4" name="colection_4"
-                                       class="form-control-sm form-control" value="{{old('colection_4')}}">
-                                {{--<select name="colection_4" id="" class="form-control form-control-sm">--}}
+                                {{--<input type="text" id="colection_4" name="colection_4"--}}
+                                       {{--class="form-control-sm form-control" value="{{old('colection_4')}}">--}}
+                                <select name="collection_4" id="" class="form-control form-control-sm select2">
 
-                                    {{--<option value="" selected>Selecciona una Coleccion</option>--}}
-                                    {{--@foreach($colections as $colection)--}}
-                                    {{--<option value="{{$colection->name}}">{{$colection->name}}</option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
+                                    <option value="" selected>Selecciona una Coleccion</option>
+                                    @foreach($books as $book)
+                                    <option value="{{$book->name}}">{{$book->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="price_4">Precio</label>
@@ -272,15 +268,15 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="colection_5">Coleccion</label>
-                                <input type="text" id="colection_5" name="colection_5"
-                                       class="form-control-sm form-control" value="{{old('colection_5')}}">
-                                {{--<select name="colection_5" id="" class="form-control form-control-sm">--}}
+                                {{--<input type="text" id="colection_5" name="colection_5"--}}
+                                       {{--class="form-control-sm form-control" value="{{old('colection_5')}}">--}}
+                                <select name="collection_5" id="" class="form-control form-control-sm select2">
 
-                                    {{--<option value="" selected>Selecciona una Coleccion</option>--}}
-                                    {{--@foreach($colections as $colection)--}}
-                                    {{--<option value="{{$colection->name}}">{{$colection->name}}</option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
+                                    <option value="" selected>Selecciona una Coleccion</option>
+                                    @foreach($books as $book)
+                                        <option value="{{$book->name}}">{{$book->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="price_5">Precio</label>
@@ -291,15 +287,15 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="colection_6">Coleccion</label>
-                                <input type="text" id="colection_6" name="colection_6"
-                                       class="form-control-sm form-control" value="{{old('colection_6')}}">
-                                {{--<select name="colection_6" id="" class="form-control form-control-sm">--}}
+                                {{--<input type="text" id="colection_6" name="colection_6"--}}
+                                       {{--class="form-control-sm form-control" value="{{old('colection_6')}}">--}}
+                                <select name="collection_6" id="" class="form-control form-control-sm select2">
 
-                                    {{--<option value="" selected>Selecciona una Coleccion</option>--}}
-                                    {{--@foreach($colections as $colection)--}}
-                                    {{--<option value="{{$colection->name}}">{{$colection->name}}</option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
+                                    <option value="" selected>Selecciona una Coleccion</option>
+                                    @foreach($books as $book)
+                                        <option value="{{$book->name}}">{{$book->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="price_6">Precio</label>
@@ -314,7 +310,7 @@
                                 {{--<input type="text" id="total" name="total"--}}
                                        {{--class="form-control-sm form-control-plaintext" readonly>--}}
                             {{--</div>--}}
-                        </div>
+                        {{--</div>--}}
                         <div class="form-row">
                             <div class="col-md-3">
                                 <label for="cuotas">Nro. Cuotas</label>

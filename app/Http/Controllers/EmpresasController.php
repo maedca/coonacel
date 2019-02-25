@@ -16,6 +16,11 @@ class EmpresasController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->role == 'relacionista'){
+            $id = auth()->user()->id;
+            $empresas = Empresa::where('relacionista_id',$id)->get();
+            return view('Empresas.index', compact('empresas'));
+        }
         $empresas = Empresa::all();
 
         return view('Empresas.index', compact('empresas'));
@@ -28,7 +33,12 @@ class EmpresasController extends Controller
      */
     public function create()
     {
-        $relacionistas = Relacionista::orderBy('name', 'ASC')->get();
+        if (auth()->user()->role == 'relacionista'){
+            $relacionista = auth()->user();
+            $industries = Industry::orderBy('name', 'ASC')->get();
+            return view('Empresas.create', compact('relacionista', 'industries'));
+        }
+        $relacionistas = User::where('role', 'relacionista')->orderBy('name', 'ASC')->get();
         $industries = Industry::orderBy('name', 'ASC')->get();
         return view('Empresas.create', compact('relacionistas', 'industries'));
     }
@@ -41,8 +51,8 @@ class EmpresasController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
-        $this->validate($request, [
+//
+        $data = $this->validate($request, [
             'name' => 'required',
             'nit' => 'required',
             'url' => 'required',
@@ -65,8 +75,9 @@ class EmpresasController extends Controller
             'pais' => 'required',
             'relacionista_id' => 'required',
         ]);
-
-        Empresa::create($request->all());
+//        $data['relacionista_id'] = auth()->user()->id;
+//        dd($data);
+        Empresa::create($data);
         return redirect()->route('Empresas.index');
     }
 
