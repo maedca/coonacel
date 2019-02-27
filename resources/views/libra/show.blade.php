@@ -262,7 +262,7 @@
                             <div class="form-group input-group col-md-3">
                                 <label for="total">Total &nbsp</label>
                                 <input type="text" id="total" name="total"
-                                       class="form-control-sm form-control-plaintext"value="{{$libra->total}}" readonly>
+                                       class="form-control-sm form-control-plaintext" value="{{$total}}" readonly>
                             </div>
                         </div>
                         <div class="form-row">
@@ -304,7 +304,7 @@
                                        {{--class="">--}}
 
                                 <label for="file">Archivo</label>
-                                <a href="{{ asset('libranza/'. $libra->file) }}">
+                                <a href="{{ asset('libranza/'. $libra->file) }}" target="_blank">
                                     Ver Archivo
                                 </a>
                             </div>

@@ -18,5 +18,8 @@ class ConferenciasTableSeeder extends Seeder
         App\Conferencia::create([
             'name' => 'Programacion Neuro Linguistica'
         ]);
+        App\Conferencia::create([
+            'name' => 'Coaching'
+        ]);
     }
 }

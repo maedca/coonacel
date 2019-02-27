@@ -56,6 +56,12 @@ class CreateLibranzasTable extends Migration
             $table->integer('price_4')->nullable();
             $table->integer('price_5')->nullable();
             $table->integer('price_6')->nullable();
+            $table->string('pin_1')->nullable();
+            $table->string('pin_2')->nullable();
+            $table->string('pin_3')->nullable();
+            $table->string('pin_4')->nullable();
+            $table->string('pin_5')->nullable();
+            $table->string('pin_6')->nullable();
             $table->integer('total')->nullable();
             $table->integer('cuotas')->nullable();
             $table->integer('vr_cuotas')->nullable();

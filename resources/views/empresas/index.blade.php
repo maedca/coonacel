@@ -22,7 +22,7 @@
                     <tr>
                         <td>{{$empresa->name}}</td>
                         <td>{{$empresa->nit}}</td>
-                        <td>{{$empresa->industria}}</td>
+                        <td>{{$empresa->industry()->first()->name}}</td>
                         <td>{{$empresa->tel_ofi}}</td>
                         <td>{{$empresa->email}}</td>
                      <td><form action="{{route('Empresas.destroy', $empresa->id)}}" method="post">

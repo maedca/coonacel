@@ -218,7 +218,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 
-
+                    @if(\Illuminate\Support\Facades\Auth::user()->role == 'logistica' || \Illuminate\Support\Facades\Auth::user()->role == 'master' )
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
@@ -236,14 +236,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
                                     <i class="fa fa-comment-alt"></i>
                                     <p class="text-white">
-                                        Agendar Conferencia
+                                        Aprobar Referenciacion
                                     </p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('Empresas.index')}}" class="nav-link ">
                                     <i class="fa fa-industry"></i>
-                                    <p class="text-white">Empresas</p>
+                                    <p class="text-white">Verificar Documentos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('Empresas.index')}}" class="nav-link ">
+                                    <i class="fa fa-industry"></i>
+                                    <p class="text-white">Verificar Pagos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('Empresas.index')}}" class="nav-link ">
+                                    <i class="fa fa-industry"></i>
+                                    <p class="text-white">Aprobar para Facturación</p>
                                 </a>
                             </li>
 
@@ -251,6 +263,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                 </ul>
+                    @endif
+                    @if(auth()->user()->role == 'master')
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
@@ -259,7 +273,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fa fa-dashboard"></i>
                             <p>
-                               Nómina
+                               Talento Humano
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
@@ -268,14 +282,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
                                     <i class="fa fa-comment-alt"></i>
                                     <p class="text-white">
-                                        Agendar Conferencia
+                                        Verificacion de Facturación
                                     </p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('Empresas.index')}}" class="nav-link ">
                                     <i class="fa fa-industry"></i>
-                                    <p class="text-white">Empresas</p>
+                                    <p class="text-white">Liquidar Comision</p>
                                 </a>
                             </li>
 
@@ -283,6 +297,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                 </ul>
+                    @endif
+                    @if(auth()->user()->role == 'master' || auth()->user()->role == 'conferencista')
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
@@ -313,6 +329,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                     </ul>
+                    @endif
+                    @if(auth()->user()->role == 'master')
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
@@ -337,6 +355,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                 </ul>
+                    @endif
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->

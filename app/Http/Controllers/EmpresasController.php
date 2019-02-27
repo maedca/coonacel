@@ -23,6 +23,7 @@ class EmpresasController extends Controller
         }
         $empresas = Empresa::all();
 
+
         return view('Empresas.index', compact('empresas'));
     }
 

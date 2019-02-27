@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Collection;
 use App\Libranza;
 use Illuminate\Http\Request;
 use App\ConferenceSchedule;
@@ -85,6 +86,12 @@ return view('libra.index',compact('libras'));
             'price_4'=> 'nullable|integer',
             'price_5'=> 'nullable|integer',
             'price_6'=> 'nullable|integer',
+            'pin_1'=> 'nullable|string',
+            'pin_2'=> 'nullable|string',
+            'pin_3'=> 'nullable|string',
+            'pin_4'=> 'nullable|string',
+            'pin_5'=> 'nullable|string',
+            'pin_6'=> 'nullable|string',
             'total'=> 'nullable|integer',
             'cuotas'=> 'nullable|integer',
             'vr_cuotas'=> 'nullable|integer',
@@ -110,8 +117,10 @@ return view('libra.index',compact('libras'));
     public function show(Libranza $libra)
     {
         //
+        $total = $libra->price_1 + $libra->price_2 + $libra->price_3 + $libra->price_6+$libra->price_5+$libra->price_6;
+        $collctions = Collection::where('id', 'name');
 
-        return view('libra.show', compact('libra'));
+        return view('libra.show', compact('libra', 'total', 'collctions'));
     }
 
     /**
