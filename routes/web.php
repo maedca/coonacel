@@ -31,5 +31,6 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('pedido', 'PedidosController');
     Route::get('/searchConferencia','LibranzasController@searchConferencia');
     Route::resource('collections', 'CollectionsController');
+    Route::resource('bills', 'BillController');
 
 });

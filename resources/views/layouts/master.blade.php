@@ -233,7 +233,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview" style="display: block;">
                             <li class="nav-item">
-                                <a href="{{route('conferenceSchedules.index')}}" class="nav-link">
+                                <a href="{{route('bills.index')}}" class="nav-link">
                                     <i class="fa fa-comment-alt"></i>
                                     <p class="text-white">
                                         Aprobar Referenciacion
@@ -306,8 +306,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fa fa-dashboard"></i>
-                                <p>
-                                    Libranzas y pedidos
+                                <p>Libranzas y pedidos
                                     <i class="right fa fa-angle-left"></i>
                                 </p>
                             </a>
