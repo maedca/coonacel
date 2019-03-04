@@ -375,41 +375,41 @@
 
                         </div>
                         @if(auth()->user()->role == 'logistica' || auth()->user()->role == 'master')
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="observation">Observación</label>
-                                <textarea name="observation" id="" cols="30" rows="10"></textarea>
-                              
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="analyst_status">Estatus</label>
-                                <select name="analyst_status" id="">
-                                    <option value="Cliente no contactado">Cliente no contactado</option>
-                                    <option value="Cliente no desea tomar">Cliente no desea tomar</option>
-                                    <option value="Referencias no aprobadas">Referencias no aprobadas</option>
-                                    <option value="Pedido mal diligenciado">Pedido mal diligenciado</option>
-                                    <option value="Conferencista cancela pedido">Conferencista cancela pedido</option>
-                                    <option value="Documentacion incompleta">Documentacion incompleta</option>
-                                    <option value="Referenciacion aprobada">Referenciacion aprobada</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="status_fact">Estatus</label>
-                                <select name="status_fact" id="">
-                                    <option value="1">Facturado</option>
-                                    <option value="0">Mo facturado</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="status">Estatus de Referenciacion</label>
-                                <select name="status" id="">
-                                    <option value="Refernciacion Aprobada">Refernciacion Aprobada</option>
-                                    <option value="Refernciacion Aprobada">Refernciacion No Aprobada</option>
-                                </select>
-                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="observation">Observación</label>
+                                    <textarea name="observation" id="" cols="30" rows="10"></textarea>
+
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="analyst_status">Estatus</label>
+                                    <select name="analyst_status" id="">
+                                        <option value="Cliente no contactado">Cliente no contactado</option>
+                                        <option value="Cliente no desea tomar">Cliente no desea tomar</option>
+                                        <option value="Referencias no aprobadas">Referencias no aprobadas</option>
+                                        <option value="Pedido mal diligenciado">Pedido mal diligenciado</option>
+                                        <option value="Conferencista cancela pedido">Conferencista cancela pedido</option>
+                                        <option value="Documentacion incompleta">Documentacion incompleta</option>
+                                        <option value="Referenciacion aprobada">Referenciacion aprobada</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="status_fact">Estatus</label>
+                                    <select name="status_fact" id="">
+                                        <option value="1">Facturado</option>
+                                        <option value="0">Mo facturado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="status">Estatus de Referenciacion</label>
+                                    <select name="status" id="">
+                                        <option value="Refernciacion Aprobada">Refernciacion Aprobada</option>
+                                        <option value="Refernciacion Aprobada">Refernciacion No Aprobada</option>
+                                    </select>
+                                </div>
 
 
-                        </div>
+                            </div>
                         @endif
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>

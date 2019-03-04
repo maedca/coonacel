@@ -3,6 +3,7 @@
     <div class="content">
         <div class="container-fluid">
             <h1 class="mt-2">Libranza</h1>
+            <a href="{{route('libra.edit', $libra->id)}}"> <button class="btn btn-success"><i class="fa fa-edit"></i></button></a>
             @if($errors->any())
 
                 <div class="container is-fluid box is-radiusless">
@@ -84,8 +85,7 @@
 
                             <div class="form-group col-md-4">
                                 <label for="conferencia">Conferencia</label>
-                                <input type="text" id="conferencia" name="conferencia"
-                                       class="form-control-sm form-control"  readonly  value="{{old('conferencia', $libra->conferencia)}}" >
+                                <input type="text" id="conferencia" name="conferencia" class="form-control-sm form-control"  readonly  value="{{old('conferencia', $libra->conferencia)}}" >
                             </div>
 
                         </div>
@@ -262,7 +262,7 @@
                             <div class="form-group input-group col-md-3">
                                 <label for="total">Total &nbsp</label>
                                 <input type="text" id="total" name="total"
-                                       class="form-control-sm form-control-plaintext" value="{{$total}}" readonly>
+                                       class="form-control-sm form-control-plaintext" value="{{$libra->total}}" readonly>
                             </div>
                         </div>
                         <div class="form-row">

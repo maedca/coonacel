@@ -15,6 +15,7 @@
                     <th>Conferencista</th>
 
                     <th>Empresa </th>
+                    <th>total</th>
 
                     <th>Acciones</th>
                 </tr>

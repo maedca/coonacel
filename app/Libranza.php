@@ -58,7 +58,13 @@ class Libranza extends Model
         'plazo',
         'file',
         'phone_f',
-        'empresa_address'
+        'empresa_address',
+        'observation',
+        'analyst_status',
+        'status_fact',
+        'status',
+        'payment'
+
     ];
     public function getEntregaNameAttribute(){
         if ($this->entrega == 0){

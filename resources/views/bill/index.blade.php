@@ -15,7 +15,8 @@
                     <th>Conferencista</th>
 
                     <th>Empresa </th>
-                    <th>Estado del proceso</th>
+                    {{--<th>Estado del proceso</th>--}}
+                    <th>Total COP</th>
 
                     <th>Acciones</th>
                 </tr>
@@ -28,7 +29,7 @@
                         <td>{{$libra->nro_libranza}}</td>
                         <td>{{$libra->conferencista}}</td>
                         <td>{{$libra->empresa}}</td>
-                        <td>{{$libra->total}}</td>
+                        <td>{{$libra->total}} $</td>
 
                         <td>
                             <form action="{{route('libra.destroy', $libra)}}" method="post">

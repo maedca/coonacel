@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Collection;
+use App\Conferencia;
 use App\Libranza;
 use Illuminate\Http\Request;
 use App\ConferenceSchedule;
@@ -60,7 +61,6 @@ return view('libra.index',compact('libras'));
             'phone'=> 'required|string|max:191',
             'cellphone'=> 'required|string|max:191',
             'phone_f'=> 'required|string|max:191',
-
             'email'=> 'required|string|max:191',
             'birthday'=> 'required|date|max:191',
             'entrega'=> 'required|integer',
@@ -96,12 +96,19 @@ return view('libra.index',compact('libras'));
             'cuotas'=> 'nullable|integer',
             'vr_cuotas'=> 'nullable|integer',
             'plazo'=> 'nullable|integer',
-            'file'=>'required|mimes:pdf'
-        ]);
+            'file'=>'required|mimes:pdf',
+            'observation' => 'sometimes|nullable|string',
+            'analyst_status' =>'sometimes|nullable|string',
+            'status_fact'=>'nullable|in:0,1',
+            'status'=>'sometimes|nullable|string',
+            'payment' => 'sometimes|in:0,1',
 
+        ]);
+        $total = $data['price_1']+ $data['price_2']+ $data['price_3']+ $data['price_4']+$data['price_5']+$data['price_6'];
         $file = $request->file('file');
         $name = time() . $file->getClientOriginalName();
         $file->move(public_path() . '/libranza/', $name);
+        $data['total'] = $total;
         $data['file'] = $name;
 
         Libranza::create($data);
@@ -117,10 +124,11 @@ return view('libra.index',compact('libras'));
     public function show(Libranza $libra)
     {
         //
-        $total = $libra->price_1 + $libra->price_2 + $libra->price_3 + $libra->price_6+$libra->price_5+$libra->price_6;
-        $collctions = Collection::where('id', 'name');
 
-        return view('libra.show', compact('libra', 'total', 'collctions'));
+//        $collctions = Collection::where('id', 'name');
+
+
+        return view('libra.show', compact('libra', 'total'));
     }
 
     /**
@@ -129,9 +137,11 @@ return view('libra.index',compact('libras'));
      * @param  \App\Libranza  $libranza
      * @return \Illuminate\Http\Response
      */
-    public function edit(Libranza $libranza)
+    public function edit(Libranza $libra)
     {
-        //
+        $conferencias = Conferencia::all();
+
+        return view('libra.edit', compact('libra', 'conferencias'));
     }
 
     /**

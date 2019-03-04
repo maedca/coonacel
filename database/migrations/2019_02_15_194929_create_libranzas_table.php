@@ -67,6 +67,12 @@ class CreateLibranzasTable extends Migration
             $table->integer('vr_cuotas')->nullable();
             $table->integer('plazo')->nullable();
             $table->string('file');
+            $table->longText('obervation')->nullable();
+            $table->string('analyst_status')->nullable();
+            $table->boolean('status_fact')->default(0);
+            $table->string('status')->nullable();
+            $table->boolean('payment')->default(0);
+
             $table->timestamps();
         });
     }
