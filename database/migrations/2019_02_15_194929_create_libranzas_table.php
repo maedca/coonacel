@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateLibranzasTable extends Migration
 {
@@ -67,12 +67,12 @@ class CreateLibranzasTable extends Migration
             $table->integer('vr_cuotas')->nullable();
             $table->integer('plazo')->nullable();
             $table->string('file');
-            $table->longText('obervation')->nullable();
+            $table->longText('observation')->nullable();
             $table->string('analyst_status')->nullable();
             $table->boolean('status_fact')->default(0);
             $table->string('status')->nullable();
             $table->boolean('payment')->default(0);
-
+            $table->string('type');
             $table->timestamps();
         });
     }

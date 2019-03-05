@@ -63,15 +63,80 @@ class Libranza extends Model
         'analyst_status',
         'status_fact',
         'status',
-        'payment'
+        'payment',
+        'type',
 
     ];
-    public function getEntregaNameAttribute(){
-        if ($this->entrega == 0){
+    public function getEntregaNameAttribute()
+    {
+        if ($this->entrega == 0) {
             return 'Empresa';
         }
-        if ($this->entrega == 1){
+        if ($this->entrega == 1) {
             return 'Casa';
         }
+    }
+
+    public function getRealAnalystStatusAttribute()
+    {
+        if ($this->analyst_status == "1") {
+
+            return 'Cliente no contactado';
+        }
+        if ($this->analyst_status == "2") {
+
+            return 'Cliente no lo desea tomar';
+        }
+        if ($this->analyst_status == "3") {
+
+            return 'Referencias No aprobadas';
+        }
+        if ($this->analyst_status == "4") {
+
+            return 'Referencias aprobadas';
+        }
+        if ($this->analyst_status == "5") {
+
+            return 'Pedido mal diligenciado';
+        }
+        if ($this->analyst_status == "6") {
+
+            return 'Conferencista cancela pedido';
+        }
+        if ($this->analyst_status == "7") {
+
+            return 'Documentacion incompleta';
+        }
+
+        if ($this->analyst_status == "8") {
+
+            return 'Referenciacion Aprobada';
+        }
+
+    }
+
+    public function getRealStatusFactAttribute()
+    {
+        if ($this->status_fact == "0") {
+
+            return 'No Facturado';
+        }
+        if ($this->status_fact == "1") {
+
+            return 'Facturado';
+        }
+
+    }
+    public function getRealStatusAttribute()
+    {
+        if ($this->status == "1") {
+
+            return 'No Referenciado';
+        }
+        if ($this->status == "2") {
+
+            return 'Referenciado';
+        }
+
     }
 }
